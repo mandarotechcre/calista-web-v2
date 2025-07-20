@@ -26,7 +26,7 @@ export function Navigation() {
           <div className="flex items-center">
             <Link href="/dashboard" className="flex items-center space-x-2">
               <Heart className="w-8 h-8 text-pink-600" />
-              <span className="text-xl font-bold text-gray-900">CycleTracker</span>
+              <span className="text-xl font-bold text-gray-900">Calista</span>
             </Link>
           </div>
 

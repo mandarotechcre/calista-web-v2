@@ -8,7 +8,7 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "CycleTracker - Menstrual Cycle Tracking App",
+  title: "Calista - Menstrual Cycle Tracking App",
   description: "Track your menstrual cycle with confidence and get personalized predictions",
     generator: 'v0.dev'
 }

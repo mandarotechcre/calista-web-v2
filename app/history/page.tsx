@@ -26,7 +26,7 @@ export default function HistoryPage() {
   useEffect(() => {
     const fetchCycles = async () => {
       try {
-        const token = localStorage.getItem("token") // sesuaikan jika token disimpan di tempat lain
+        const token = localStorage.getItem("token")
         const response = await fetch("http://localhost:8080/api/v1/menstrual/history", {
           method: "GET",
           headers: {
@@ -35,12 +35,12 @@ export default function HistoryPage() {
           },
         })
 
-        if (!response.ok) throw new Error("Failed to fetch cycle history")
+        if (!response.ok) throw new Error("Gagal mengambil data riwayat siklus")
 
         const data = await response.json()
         setCycles(data || [])
       } catch (error) {
-        console.error("Error fetching data:", error)
+        console.error("Gagal mengambil data:", error)
         setCycles([])
       } finally {
         setIsLoading(false)
@@ -96,9 +96,9 @@ export default function HistoryPage() {
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 flex items-center space-x-2">
               <History className="w-8 h-8 text-pink-600" />
-              <span>Cycle History</span>
+              <span>Riwayat Siklus</span>
             </h1>
-            <p className="text-gray-600 mt-2">View your complete menstrual cycle history and patterns</p>
+            <p className="text-gray-600 mt-2">Lihat riwayat lengkap dan pola siklus menstruasimu</p>
           </div>
 
           {stats && (
@@ -106,25 +106,25 @@ export default function HistoryPage() {
               <Card>
                 <CardContent className="p-4 text-center">
                   <div className="text-2xl font-bold text-pink-600">{stats.totalCycles}</div>
-                  <div className="text-sm text-gray-600">Total Cycles</div>
+                  <div className="text-sm text-gray-600">Total Siklus</div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-4 text-center">
                   <div className="text-2xl font-bold text-purple-600">{stats.avgDuration}</div>
-                  <div className="text-sm text-gray-600">Avg Duration (days)</div>
+                  <div className="text-sm text-gray-600">Rata-rata Durasi (hari)</div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-4 text-center">
                   <div className="text-2xl font-bold text-blue-600">{stats.avgCycleLength}</div>
-                  <div className="text-sm text-gray-600">Avg Cycle Length</div>
+                  <div className="text-sm text-gray-600">Rata-rata Panjang Siklus</div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-4 text-center">
                   <div className="text-2xl font-bold text-yellow-600">{stats.irregularCycles}</div>
-                  <div className="text-sm text-gray-600">Irregular Cycles</div>
+                  <div className="text-sm text-gray-600">Siklus Tidak Teratur</div>
                 </CardContent>
               </Card>
             </div>
@@ -132,15 +132,15 @@ export default function HistoryPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Cycle History</CardTitle>
-              <CardDescription>Your complete menstrual cycle records</CardDescription>
+              <CardTitle>Riwayat Menstruasi</CardTitle>
+              <CardDescription>Catatan siklus menstruasi kamu yang tersimpan</CardDescription>
             </CardHeader>
             <CardContent>
               {cycles.length === 0 ? (
                 <div className="text-center py-8">
                   <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">No cycle history available</p>
-                  <p className="text-sm text-gray-500 mt-2">Start tracking your cycles to see history here</p>
+                  <p className="text-gray-600">Belum ada data riwayat siklus</p>
+                  <p className="text-sm text-gray-500 mt-2">Mulai lacak siklus kamu untuk melihat riwayat di sini</p>
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -152,8 +152,8 @@ export default function HistoryPage() {
                       <div className="flex-1 space-y-2 md:space-y-0">
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="font-medium">
-                            {format(parseISO(cycle.startDate), "MMM dd, yyyy")} -{" "}
-                            {format(parseISO(cycle.endDate), "MMM dd, yyyy")}
+                            {format(parseISO(cycle.startDate), "dd MMM yyyy")} -{" "}
+                            {format(parseISO(cycle.endDate), "dd MMM yyyy")}
                           </span>
                           {cycle.isIstihaadhah && (
                             <Badge variant="destructive" className="flex items-center space-x-1">
@@ -163,12 +163,10 @@ export default function HistoryPage() {
                           )}
                         </div>
                         <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                          <span>Duration: {cycle.duration} days</span>
-                          {cycle.cycleLength && <span>Cycle Length: {cycle.cycleLength} days</span>}
-                          {cycle.peakDate && <span>Peak: {format(parseISO(cycle.peakDate), "MMM dd")}</span>}
+                          <span>Durasi: {cycle.duration} hari</span>
+                          {cycle.cycleLength && <span>Panjang Siklus: {cycle.cycleLength} hari</span>}
+                          {cycle.peakDate && <span>Hari Puncak: {format(parseISO(cycle.peakDate), "dd MMM")}</span>}
                         </div>
-                      </div>
-                      <div className="mt-2 md:mt-0">
                       </div>
                     </div>
                   ))}

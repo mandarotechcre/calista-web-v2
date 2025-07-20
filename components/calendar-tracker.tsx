@@ -57,20 +57,20 @@ export function CalendarTracker() {
   useEffect(() => {
     const fetchActiveCycle = async () => {
       if (!token) return
-      
+
       try {
         setIsLoading(true)
-        const response = await fetch('http://localhost:8080/api/v1/menstrual/active', {
-          method: 'GET',
+        const response = await fetch("http://localhost:8080/api/v1/menstrual/active", {
+          method: "GET",
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         })
 
         if (response.ok) {
           const data: ApiActiveCycleResponse = await response.json()
-          
+
           if (data.startDate) {
             const cycle: CurrentCycle = {
               id: data.createdAt || Date.now().toString(),
@@ -80,9 +80,9 @@ export function CalendarTracker() {
               duration: data.duration,
               isActive: data.isActive,
               isIstihaadhah: data.isIstihaadhah,
-              cycleLength: data.cycleLength?data.cycleLength:0,
+              cycleLength: data.cycleLength ? data.cycleLength : 0,
               lastMenstrual: data.lastMenstrual ? parseISO(data.lastMenstrual) : undefined,
-              createdAt: data.createdAt ? parseISO(data.createdAt) : undefined
+              createdAt: data.createdAt ? parseISO(data.createdAt) : undefined,
             }
 
             setCurrentCycle(cycle)
@@ -92,33 +92,33 @@ export function CalendarTracker() {
             if (data.startDate) {
               events.push({
                 date: parseISO(data.startDate),
-                type: 'start',
-                cycleId: data.createdAt || undefined
+                type: "start",
+                cycleId: data.createdAt || undefined,
               })
             }
             if (data.peakDate) {
               events.push({
                 date: parseISO(data.peakDate),
-                type: 'peak',
-                cycleId: data.createdAt || undefined
+                type: "peak",
+                cycleId: data.createdAt || undefined,
               })
             }
             if (data.endDate) {
               events.push({
                 date: parseISO(data.endDate),
-                type: 'end',
-                cycleId: data.createdAt || undefined
+                type: "end",
+                cycleId: data.createdAt || undefined,
               })
             }
             setCycleEvents(events)
           }
         }
       } catch (error) {
-        console.error('Error fetching active cycle:', error)
+        console.error("Error fetching active cycle:", error)
         toast({
-          title: "Error",
-          description: "Failed to load cycle data",
-          variant: "destructive"
+          title: "Kesalahan",
+          description: "Gagal memuat data siklus",
+          variant: "destructive",
         })
       } finally {
         setIsLoading(false)
@@ -140,38 +140,38 @@ export function CalendarTracker() {
     try {
       setIsLoading(true)
       const actionType = selectedEventType.toUpperCase()
-      const dateString = format(selectedDate, 'yyyy-MM-dd')
+      const dateString = format(selectedDate, "yyyy-MM-dd")
 
-      const response = await fetch('http://localhost:8080/api/v1/menstrual/mark-it', {
-        method: 'POST',
+      const response = await fetch("http://localhost:8080/api/v1/menstrual/mark-it", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           date: dateString,
-          actionType
-        })
+          actionType,
+        }),
       })
 
       if (response.ok) {
         toast({
-          title: "Success",
-          description: `Cycle event marked successfully`,
+          title: "Berhasil",
+          description: `Peristiwa siklus berhasil ditandai`,
         })
 
         // Refresh the active cycle data
-        const cycleResponse = await fetch('http://localhost:8080/api/v1/menstrual/active', {
-          method: 'GET',
+        const cycleResponse = await fetch("http://localhost:8080/api/v1/menstrual/active", {
+          method: "GET",
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         })
 
         if (cycleResponse.ok) {
           const data: ApiActiveCycleResponse = await cycleResponse.json()
-          
+
           if (data.startDate) {
             const cycle: CurrentCycle = {
               id: data.createdAt || Date.now().toString(),
@@ -181,9 +181,9 @@ export function CalendarTracker() {
               duration: data.duration,
               isActive: data.isActive,
               isIstihaadhah: data.isIstihaadhah,
-              cycleLength: data.cycleLength?data.cycleLength:0,
+              cycleLength: data.cycleLength ? data.cycleLength : 0,
               lastMenstrual: data.lastMenstrual ? parseISO(data.lastMenstrual) : undefined,
-              createdAt: data.createdAt ? parseISO(data.createdAt) : undefined
+              createdAt: data.createdAt ? parseISO(data.createdAt) : undefined,
             }
 
             setCurrentCycle(cycle)
@@ -193,36 +193,36 @@ export function CalendarTracker() {
             if (data.startDate) {
               events.push({
                 date: parseISO(data.startDate),
-                type: 'start',
-                cycleId: data.createdAt || undefined
+                type: "start",
+                cycleId: data.createdAt || undefined,
               })
             }
             if (data.peakDate) {
               events.push({
                 date: parseISO(data.peakDate),
-                type: 'peak',
-                cycleId: data.createdAt || undefined
+                type: "peak",
+                cycleId: data.createdAt || undefined,
               })
             }
             if (data.endDate) {
               events.push({
                 date: parseISO(data.endDate),
-                type: 'end',
-                cycleId: data.createdAt || undefined
+                type: "end",
+                cycleId: data.createdAt || undefined,
               })
             }
             setCycleEvents(events)
           }
         }
       } else {
-        throw new Error('Failed to mark event')
+        throw new Error("Failed to mark event")
       }
     } catch (error) {
-      console.error('Error marking cycle event:', error)
+      console.error("Error marking cycle event:", error)
       toast({
-        title: "Error",
-        description: "Failed to mark cycle event",
-        variant: "destructive"
+        title: "Kesalahan",
+        description: "Gagal menandai peristiwa siklus",
+        variant: "destructive",
       })
     } finally {
       setIsLoading(false)
@@ -238,7 +238,8 @@ export function CalendarTracker() {
   const getCurrentCycleInfo = () => {
     if (!currentCycle?.startDate) return null
 
-    const duration = currentCycle.duration || 
+    const duration =
+      currentCycle.duration ||
       (currentCycle.startDate ? differenceInDays(new Date(), currentCycle.startDate) + 1 : null)
 
     return {
@@ -248,7 +249,7 @@ export function CalendarTracker() {
       peakDate: currentCycle.peakDate,
       endDate: currentCycle.endDate,
       isIstihaadhah: currentCycle.isIstihaadhah,
-      cycleLength: currentCycle.cycleLength
+      cycleLength: currentCycle.cycleLength,
     }
   }
 
@@ -268,9 +269,9 @@ export function CalendarTracker() {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <CalendarIcon className="w-5 h-5 text-pink-600" />
-                <span>Cycle Tracker</span>
+                <span>Pelacak Siklus</span>
               </CardTitle>
-              <CardDescription>Click on dates to mark your cycle events</CardDescription>
+              <CardDescription>Klik pada tanggal untuk menandai peristiwa siklus Anda</CardDescription>
             </CardHeader>
             <CardContent>
               <Calendar
@@ -298,7 +299,7 @@ export function CalendarTracker() {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <Droplets className="w-5 h-5 text-pink-600" />
-                <span>Current Cycle</span>
+                <span>Siklus Saat Ini</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -307,37 +308,37 @@ export function CalendarTracker() {
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600">Status</span>
                     <Badge variant={cycleInfo.isActive ? "default" : "secondary"}>
-                      {cycleInfo.isActive ? "Active" : "Completed"}
+                      {cycleInfo.isActive ? "Aktif" : "Selesai"}
                     </Badge>
                   </div>
-                  
+
                   {cycleInfo.startDate && (
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Start Date</span>
+                      <span className="text-sm text-gray-600">Tanggal Mulai</span>
                       <span className="font-medium">{format(cycleInfo.startDate, "MMM dd")}</span>
                     </div>
                   )}
                   {cycleInfo.peakDate && (
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">Peak Date</span>
+                      <span className="text-sm text-gray-600">Tanggal Puncak</span>
                       <span className="font-medium">{format(cycleInfo.peakDate, "MMM dd")}</span>
                     </div>
                   )}
                   {cycleInfo.endDate && (
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-600">End Date</span>
+                      <span className="text-sm text-gray-600">Tanggal Berakhir</span>
                       <span className="font-medium">{format(cycleInfo.endDate, "MMM dd")}</span>
                     </div>
                   )}
                   {cycleInfo.isIstihaadhah && (
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-gray-600">Status</span>
-                      <Badge variant="destructive">Istihaadhah</Badge>
+                      <Badge variant="destructive">Istihadhah</Badge>
                     </div>
                   )}
                 </div>
               ) : (
-                <p className="text-sm text-gray-600">No active cycle. Click on a date to start tracking.</p>
+                <p className="text-sm text-gray-600">Tidak ada siklus aktif. Klik pada tanggal untuk mulai melacak.</p>
               )}
             </CardContent>
           </Card>
@@ -346,21 +347,21 @@ export function CalendarTracker() {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <TrendingUp className="w-5 h-5 text-pink-600" />
-                <span>Legend</span>
+                <span>Keterangan</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 bg-pink-500 rounded"></div>
-                <span className="text-sm">Start of menstruation</span>
+                <span className="text-sm">Awal menstruasi</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 bg-red-500 rounded"></div>
-                <span className="text-sm">Peak flow</span>
+                <span className="text-sm">Aliran puncak</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 bg-purple-500 rounded"></div>
-                <span className="text-sm">End of menstruation</span>
+                <span className="text-sm">Akhir menstruasi</span>
               </div>
             </CardContent>
           </Card>
@@ -370,31 +371,31 @@ export function CalendarTracker() {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Mark Cycle Event</DialogTitle>
+            <DialogTitle>Tandai Peristiwa Siklus</DialogTitle>
             <DialogDescription>
-              What happened on {selectedDate && format(selectedDate, "MMMM dd, yyyy")}?
+              Apa yang terjadi pada {selectedDate && format(selectedDate, "MMMM dd, yyyy")}?
             </DialogDescription>
           </DialogHeader>
           <RadioGroup value={selectedEventType} onValueChange={setSelectedEventType}>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="start" id="start" />
-              <Label htmlFor="start">Start of menstruation</Label>
+              <Label htmlFor="start">Awal menstruasi</Label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="peak" id="peak" />
-              <Label htmlFor="peak">Peak flow day</Label>
+              <Label htmlFor="peak">Hari aliran puncak</Label>
             </div>
             <div className="flex items-center space-x-2">
               <RadioGroupItem value="end" id="end" />
-              <Label htmlFor="end">End of menstruation</Label>
+              <Label htmlFor="end">Akhir menstruasi</Label>
             </div>
           </RadioGroup>
           <div className="flex justify-end space-x-2 mt-4">
             <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
-              Cancel
+              Batal
             </Button>
             <Button onClick={handleEventAdd} disabled={!selectedEventType || isLoading}>
-              {isLoading ? "Processing..." : "Add Event"}
+              {isLoading ? "Memproses..." : "Tambah Peristiwa"}
             </Button>
           </div>
         </DialogContent>

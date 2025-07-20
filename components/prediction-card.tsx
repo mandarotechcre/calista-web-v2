@@ -16,12 +16,12 @@ const PredictionLoadingState = () => (
     <CardHeader>
       <CardTitle className="flex items-center space-x-2">
         <TrendingUp className="w-5 h-5 text-pink-600" />
-        <span>Cycle Prediction</span>
+        <span>Prediksi Siklus</span>
       </CardTitle>
     </CardHeader>
     <CardContent className="flex flex-col items-center justify-center py-8">
       <Loader2 className="w-8 h-8 text-pink-500 animate-spin" />
-      <p className="mt-2 text-sm text-gray-500">Analyzing your cycle data...</p>
+      <p className="mt-2 text-sm text-gray-500">Menganalisis data siklus kamu...</p>
     </CardContent>
   </Card>
 )
@@ -31,13 +31,13 @@ const PredictionEmptyState = () => (
     <CardHeader>
       <CardTitle className="flex items-center space-x-2">
         <TrendingUp className="w-5 h-5 text-pink-600" />
-        <span>Cycle Prediction</span>
+        <span>Prediksi Siklus</span>
       </CardTitle>
-      <CardDescription>Complete a cycle to see predictions</CardDescription>
+      <CardDescription>Lengkapi satu siklus terlebih dahulu</CardDescription>
     </CardHeader>
     <CardContent>
       <p className="text-sm text-gray-600">
-        Track at least one full menstrual cycle to get personalized predictions.
+        Catat setidaknya satu siklus menstruasi lengkap untuk mendapatkan prediksi yang dipersonalisasi.
       </p>
     </CardContent>
   </Card>
@@ -48,7 +48,7 @@ const PredictionErrorState = ({ error }: { error: string }) => (
     <CardHeader>
       <CardTitle className="flex items-center space-x-2 text-red-600">
         <AlertTriangle className="w-5 h-5" />
-        <span>Prediction Error</span>
+        <span>Terjadi Kesalahan</span>
       </CardTitle>
     </CardHeader>
     <CardContent>
@@ -64,7 +64,7 @@ const DateDisplay = ({ date, label }: { date: Date; label: string }) => (
       <span className="text-sm font-medium">{label}</span>
     </div>
     <p className="text-lg font-semibold text-pink-600">
-      {format(date, "MMM dd, yyyy")}
+      {format(date, "dd MMM yyyy")}
     </p>
   </div>
 )
@@ -97,29 +97,27 @@ export function PredictionCard({
   if (!prediction) return <PredictionEmptyState />
 
   const nextCycleEnd = addDays(prediction.nextCycleStart, prediction.expectedDuration - 1)
-  const confidenceLevel = prediction.confidence > 75 ? "high" : 
-                         prediction.confidence > 50 ? "medium" : "low"
 
   return (
     <Card className="h-full">
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
           <TrendingUp className="w-5 h-5 text-pink-600" />
-          <span>Cycle Prediction</span>
+          <span>Prediksi Siklus</span>
         </CardTitle>
         <CardDescription>
-          Based on your {prediction.averageCycleLength}-day average cycle
+          Berdasarkan rata-rata siklus kamu selama {prediction.averageCycleLength} hari
         </CardDescription>
       </CardHeader>
       
       <CardContent className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <DateDisplay date={prediction.nextCycleStart} label="Next Cycle Start" />
-          <DateDisplay date={nextCycleEnd} label="Expected End" />
+          <DateDisplay date={prediction.nextCycleStart} label="Perkiraan Mulai" />
+          <DateDisplay date={nextCycleEnd} label="Perkiraan Selesai" />
         </div>
         <div className="grid grid-cols-2 gap-4 pt-2">
-          <StatBox value={prediction.expectedDuration} label="Expected Duration" color="pink" />
-          <StatBox value={prediction.averageCycleLength} label="Average Cycle" color="purple" />
+          <StatBox value={prediction.expectedDuration} label="Durasi Haid" color="pink" />
+          <StatBox value={prediction.averageCycleLength} label="Rata-rata Siklus" color="purple" />
         </div>
 
         {prediction.isIrregular && (
@@ -127,11 +125,11 @@ export function PredictionCard({
             <AlertTriangle className="w-4 h-4 text-yellow-600 mt-0.5 flex-shrink-0" />
             <div>
               <p className="text-sm font-medium text-yellow-800">
-                Irregular Pattern Detected
+                Pola Tidak Teratur Terdeteksi
               </p>
               <p className="text-xs text-yellow-700">
-                Your cycles show variation beyond normal ranges. Consider tracking 
-                additional symptoms or consulting a healthcare provider.
+                Siklus kamu menunjukkan variasi yang melebihi batas normal. 
+                Pertimbangkan untuk mencatat gejala tambahan atau berkonsultasi dengan tenaga medis.
               </p>
             </div>
           </div>
