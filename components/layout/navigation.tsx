@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation"
 const navigation = [
   { name: "Tracker", href: "/dashboard", icon: Calendar },
   { name: "History", href: "/history", icon: History },
-  { name: "Articles", href: "/articles", icon: BookOpen },
+  { name: "Konten Fiqih", href: "/articles", icon: BookOpen },
 ]
 
 export function Navigation() {

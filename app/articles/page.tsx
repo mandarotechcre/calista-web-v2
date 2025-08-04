@@ -5,7 +5,7 @@ import { Navigation } from "@/components/layout/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { BookOpen, Calendar, Clock, AlertTriangle, Droplets, Heart } from "lucide-react"
+import { BookOpen, Calendar, Clock, AlertTriangle, Droplets, Heart, Sparkles, Trash2 } from "lucide-react"
 
 export default function ArticlesPage() {
   return (
@@ -86,22 +86,34 @@ export default function ArticlesPage() {
                         8. Hal yang Diharamkan
                       </a>
                       <a
+                        href="#cara-membersihkan"
+                        className="block text-sm text-blue-600 hover:text-blue-800 py-1 px-2 rounded hover:bg-blue-50 transition-colors"
+                      >
+                        9. Cara Membersihkan Darah Haid
+                      </a>
+                      <a
+                        href="#membuang-pembalut"
+                        className="block text-sm text-blue-600 hover:text-blue-800 py-1 px-2 rounded hover:bg-blue-50 transition-colors"
+                      >
+                        10. Cara Membuang Pembalut
+                      </a>
+                      <a
                         href="#istihadah"
                         className="block text-sm text-blue-600 hover:text-blue-800 py-1 px-2 rounded hover:bg-blue-50 transition-colors"
                       >
-                        9. Macam-macam Istihadah
+                        11. Macam-macam Istihadah
                       </a>
                       <a
                         href="#solat-istihadah"
                         className="block text-sm text-blue-600 hover:text-blue-800 py-1 px-2 rounded hover:bg-blue-50 transition-colors"
                       >
-                        10. Tata Cara Solat Istihadah
+                        12. Tata Cara Solat Istihadah
                       </a>
                       <a
                         href="#mandi-wajib"
                         className="block text-sm text-blue-600 hover:text-blue-800 py-1 px-2 rounded hover:bg-blue-50 transition-colors"
                       >
-                        11. Tata Cara Mandi Wajib
+                        13. Tata Cara Mandi Wajib
                       </a>
                     </nav>
                   </ScrollArea>
@@ -155,7 +167,6 @@ export default function ArticlesPage() {
                         </p>
                       </CardContent>
                     </Card>
-
                     <Card className="border-blue-200">
                       <CardHeader className="pb-3">
                         <Badge variant="secondary" className="w-fit bg-blue-100 text-blue-800">
@@ -169,7 +180,6 @@ export default function ArticlesPage() {
                         </p>
                       </CardContent>
                     </Card>
-
                     <Card className="border-yellow-200">
                       <CardHeader className="pb-3">
                         <Badge variant="secondary" className="w-fit bg-yellow-100 text-yellow-800">
@@ -183,12 +193,11 @@ export default function ArticlesPage() {
                       </CardContent>
                     </Card>
                   </div>
-
                   <div className="bg-blue-50 p-4 rounded-lg">
                     <h4 className="font-semibold text-blue-900 mb-2">Masa Nifas:</h4>
                     <ul className="space-y-1 text-sm text-blue-800">
                       <li>
-                        • <strong>Masa minimal:</strong> sekejap (segejrotan)
+                        • <strong>Masa minimal:</strong> setetes
                       </li>
                       <li>
                         • <strong>Masa umumnya/galibnya:</strong> 40 Hari
@@ -212,7 +221,6 @@ export default function ArticlesPage() {
                     minimal haid wanita yaitu 9 tahun Hijriyah kurang 16 hari (kurang sedikit) dan keluar secara alami
                     (tabi'atne) wanita bukan karena melahirkan atau karena penyakit pada rahimnya.
                   </p>
-
                   <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
                     <h4 className="font-semibold text-green-900 mb-2">Hadits Nabi:</h4>
                     <div className="text-center mb-2">
@@ -241,7 +249,6 @@ export default function ArticlesPage() {
                       9 tahun dengan selisih masa yang tidak cukup untuk masa minimal suci (masa minimal suci adalah 15
                       hari) dan minimal Haid (24 jam = 1 hari) jadi jumlah 16 hari.
                     </p>
-
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="bg-green-50 p-4 rounded-lg">
                         <h4 className="font-semibold text-green-800 mb-2">✓ Dihukumi Haid:</h4>
@@ -250,7 +257,6 @@ export default function ArticlesPage() {
                           hari, dst.)
                         </p>
                       </div>
-
                       <div className="bg-red-50 p-4 rounded-lg">
                         <h4 className="font-semibold text-red-800 mb-2">✗ Bukan Haid:</h4>
                         <p className="text-sm text-red-700">
@@ -259,7 +265,6 @@ export default function ArticlesPage() {
                         </p>
                       </div>
                     </div>
-
                     <div className="bg-blue-50 p-4 rounded-lg">
                       <p className="text-sm text-blue-800">
                         <strong>Catatan:</strong> Dapat dipastikan kalau 9 tahun Masehi pasti sudah 9 tahun Hijriyah,
@@ -286,20 +291,17 @@ export default function ArticlesPage() {
                       <p className="text-2xl font-bold text-red-600">24 jam</p>
                       <p className="text-xs text-red-600">Terus-menerus atau terputus-putus dalam masa 15 hari</p>
                     </div>
-
                     <div className="text-center p-4 bg-blue-50 rounded-lg">
                       <h4 className="font-semibold text-blue-800">Umumnya</h4>
                       <p className="text-2xl font-bold text-blue-600">6-7 hari</p>
                       <p className="text-xs text-blue-600">Masa galibnya</p>
                     </div>
-
                     <div className="text-center p-4 bg-purple-50 rounded-lg">
                       <h4 className="font-semibold text-purple-800">Maksimal</h4>
                       <p className="text-2xl font-bold text-purple-600">15 hari</p>
                       <p className="text-xs text-purple-600">15 malam</p>
                     </div>
                   </div>
-
                   <div className="space-y-4">
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <h4 className="font-semibold mb-2">Yang dimaksud Terus menerus:</h4>
@@ -308,7 +310,6 @@ export default function ArticlesPage() {
                         darah haid meskipun hanya berwarna keruh dan tidak sampai mengalir kebagian luar vagina.
                       </p>
                     </div>
-
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <h4 className="font-semibold mb-2">Maksud Putus-putus dalam masa 15 hari:</h4>
                       <p className="text-sm text-gray-700">
@@ -340,7 +341,6 @@ export default function ArticlesPage() {
                         </li>
                       </ul>
                     </div>
-
                     <div>
                       <h4 className="font-semibold mb-3">Dari segi Bau:</h4>
                       <ul className="space-y-2">
@@ -355,10 +355,8 @@ export default function ArticlesPage() {
                       </ul>
                     </div>
                   </div>
-
                   <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
                     <h4 className="font-semibold text-yellow-800 mb-3">Ihtilaf terkait flek kuning/keruh:</h4>
-
                     <div className="space-y-4">
                       <div className="bg-white p-3 rounded">
                         <h5 className="font-semibold text-green-800">
@@ -373,7 +371,6 @@ export default function ArticlesPage() {
                           </p>
                         </div>
                       </div>
-
                       <div className="bg-white p-3 rounded">
                         <h5 className="font-semibold text-red-800">Pendapat Qaul kedua (sebagian Syafi'iyah):</h5>
                         <p className="text-sm text-gray-700 mb-2">Flek kuning/keruh itu bukan haid.</p>
@@ -385,7 +382,6 @@ export default function ArticlesPage() {
                           </p>
                         </div>
                       </div>
-
                       <div className="bg-white p-3 rounded">
                         <h5 className="font-semibold text-blue-800">Pendapat Qaul ketiga (Tafsil/diperinci):</h5>
                         <ul className="text-sm text-gray-700 space-y-1">
@@ -431,7 +427,6 @@ export default function ArticlesPage() {
                         </div>
                       </div>
                     </div>
-
                     <div className="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
                       <h4 className="font-semibold text-yellow-800 mb-2">Status hukum jeda suci (hari 5-7):</h4>
                       <p className="text-sm text-gray-700 mb-3">
@@ -439,7 +434,6 @@ export default function ArticlesPage() {
                         ialah dihukumi Haid. Sehingga konsekuensinya: Solat dan puasa yang ia kerjakan tidak sah, namun
                         ia tidak berdosa.
                       </p>
-
                       <div className="bg-white p-3 rounded">
                         <h5 className="font-semibold mb-2">Jeda suci dihukumi Haid dengan dua syarat:</h5>
                         <ol className="text-sm space-y-1 list-decimal list-inside">
@@ -448,14 +442,12 @@ export default function ArticlesPage() {
                         </ol>
                       </div>
                     </div>
-
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <h4 className="font-semibold mb-2">Wanita yang terbiasa mengalami haid terputus-putus:</h4>
                       <p className="text-sm text-gray-700 mb-3">
                         Apakah ia boleh mengacu pada pengalaman pada siklus haid dibulan sebelumnya dan tidak boleh
                         solat di masa terputusnya darah?
                       </p>
-
                       <div className="grid md:grid-cols-2 gap-4">
                         <div className="bg-blue-100 p-3 rounded">
                           <h5 className="font-semibold text-blue-800">Pendapat Imam Nawawi (Qaul Mu'tamad):</h5>
@@ -464,7 +456,6 @@ export default function ArticlesPage() {
                             terhenti.
                           </p>
                         </div>
-
                         <div className="bg-green-100 p-3 rounded">
                           <h5 className="font-semibold text-green-800">Pendapat Imam Arrofi'i:</h5>
                           <p className="text-xs text-green-700">
@@ -511,6 +502,205 @@ export default function ArticlesPage() {
                 </CardContent>
               </Card>
 
+              {/* Cara Membersihkan Darah Haid */}
+              <Card id="cara-membersihkan">
+                <CardHeader>
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="h-5 w-5 text-blue-500" />
+                    <CardTitle className="text-xl">
+                      Panduan Tetap Suci Saat Haid - Cara Membersihkan Area Kelamin
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                      <p className="text-blue-800 font-semibold mb-2">
+                        🌸 Haid itu fitrah, tapi menjaga kebersihannya adalah bagian dari ibadah juga!
+                      </p>
+                      <p className="text-sm text-blue-700">
+                        Yuk, pelajari cara membersihkan area kewanitaan sesuai adab syariat ✨
+                      </p>
+                    </div>
+
+                    <div className="space-y-4">
+                      {[
+                        {
+                          no: 1,
+                          title: "💦 Bilas Pakai Air Bersih yang Mengalir",
+                          desc: "Selalu basuh area kewanitaan setelah buang air kecil/besar dan setiap ganti pembalut. Usahakan membasuh dari arah depan ke belakang untuk menghindari penyebaran bakteri dari anus ke vagina.",
+                          icon: "💧",
+                        },
+                        {
+                          no: 2,
+                          title: "🤲 Pakai Tangan Kiri",
+                          desc: "Sesuai adab dalam Islam, gunakan tangan kiri saat membersihkan area sensitif.",
+                          icon: "👈",
+                        },
+                        {
+                          no: 3,
+                          title: "👀 Jangan Lupa Area Lipatan!",
+                          desc: "Lipatan kulit di sekitar farji bisa jadi tempat sisa darah menempel. Bersihkan dengan lembut agar tidak menimbulkan bau, iritasi, atau najis yang tertinggal.",
+                          icon: "🔍",
+                        },
+                        {
+                          no: 4,
+                          title: "🧴 Sabun? Boleh, Tapi Pilih yang Lembut",
+                          desc: "Gunakan sabun khusus kewanitaan yang tanpa pewangi menyengat. Cukup bersihkan bagian luar saja, jangan sampai dimasukkan ke dalam.",
+                          icon: "🧼",
+                        },
+                        {
+                          no: 5,
+                          title: "🧻 Keringkan Setelah Membersihkan",
+                          desc: "Setelah dibasuh, keringkan pakai tisu bersih atau kain lembut. Area lembap bisa memicu jamur atau bau tidak sedap.",
+                          icon: "🌬️",
+                        },
+                        {
+                          no: 6,
+                          title: "⏰ Ganti Pembalut Secara Rutin",
+                          desc: "Disarankan setiap 3–4 jam sekali, atau lebih sering kalau aliran darah banyak. Jangan tunggu sampai penuh atau lembap supaya tetap nyaman dan higienis.",
+                          icon: "🔄",
+                        },
+                      ].map((item) => (
+                        <div
+                          key={item.no}
+                          className="flex gap-4 p-4 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg border border-pink-200"
+                        >
+                          <div className="text-2xl">{item.icon}</div>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-purple-800 mb-2">{item.title}</h4>
+                            <p className="text-sm text-purple-700">{item.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                      <h4 className="font-semibold text-green-800 mb-2">💡 Tips Tambahan:</h4>
+                      <ul className="text-sm text-green-700 space-y-1">
+                        <li>• Hindari penggunaan sabun yang terlalu keras atau mengandung parfum berlebihan</li>
+                        <li>
+                          • Jangan gunakan douching (menyemprotkan air ke dalam vagina) karena dapat mengganggu
+                          keseimbangan bakteri alami
+                        </li>
+                        <li>• Ganti pakaian dalam secara rutin, pilih yang berbahan katun dan menyerap keringat</li>
+                        <li>
+                          • Jika terjadi iritasi atau gatal yang berlebihan, segera konsultasi dengan tenaga medis
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Cara Membuang Pembalut */}
+              <Card id="membuang-pembalut">
+                <CardHeader>
+                  <div className="flex items-center gap-2">
+                    <Trash2 className="h-5 w-5 text-green-500" />
+                    <CardTitle className="text-xl">🩸 Cara Aman & Syar'i Buang Pembalut</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                      <p className="text-green-800 font-semibold">
+                        Yuk, pelajari cara membuang pembalut sesuai adab syariat ✨
+                      </p>
+                    </div>
+
+                    <div className="space-y-4">
+                      {[
+                        {
+                          no: 1,
+                          title: "🔒 Nggak perlu dicuci dulu",
+                          desc: "Darah haid memang najis, tapi nggak wajib dicuci sebelum dibuang. Justru mencuci bisa nyebarkan bakteri dan bau.",
+                          color: "blue",
+                        },
+                        {
+                          no: 2,
+                          title: "📦 Lipat & tutup rapat",
+                          desc: "Karena darah haid itu najis, penting banget untuk menutup pembalut dengan rapi supaya tidak menyebarkan najis ke mana-mana. Ini juga bagian dari menjaga 'aurat dan kebersihan.",
+                          color: "purple",
+                        },
+                        {
+                          no: 3,
+                          title: "🛍️ Bungkus pakai plastik/kertas",
+                          desc: "Gunakan kantong plastik atau kertas bekas untuk membungkus pembalut sebelum dibuang. Lebih bersih dan sopan dilihat 👌",
+                          color: "pink",
+                        },
+                        {
+                          no: 4,
+                          title: "🗑️ Buang di tempat sampah tertutup",
+                          desc: "Hindari buang sembarangan, ya. Pilih tempat sampah yang tertutup supaya najis dan bau tidak menyebar.",
+                          color: "green",
+                        },
+                        {
+                          no: 5,
+                          title: "🧼 Cuci tangan sampai bersih",
+                          desc: "Setelah membuang pembalut, langsung cuci tangan dengan sabun. Bersih itu sebagian dari iman 🌸",
+                          color: "yellow",
+                        },
+                      ].map((item) => (
+                        <div
+                          key={item.no}
+                          className={`flex gap-4 p-4 bg-${item.color}-50 rounded-lg border border-${item.color}-200`}
+                        >
+                          <div
+                            className={`w-8 h-8 bg-${item.color}-500 text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0`}
+                          >
+                            {item.no}
+                          </div>
+                          <div className="flex-1">
+                            <h4 className={`font-semibold text-${item.color}-800 mb-2`}>{item.title}</h4>
+                            <p className={`text-sm text-${item.color}-700`}>{item.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Pembalut Kain */}
+                    <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                      <h4 className="font-semibold text-orange-800 mb-3">
+                        📌 Catatan untuk yang memakai pembalut kain (reusable):
+                      </h4>
+                      <div className="space-y-2 text-sm text-orange-700">
+                        <p>🫧 Buang darah sisa ke WC terlebih dahulu.</p>
+                        <p>🧼 Cuci dengan sabun hingga bersih, hilangkan bau dan noda.</p>
+                        <p>🌤️ Jemur di tempat terbuka agar tidak lembap dan bebas bakteri.</p>
+                        <p>☝️ Simpan di tempat bersih dan khusus agar tidak tercampur.</p>
+                      </div>
+                    </div>
+
+                    {/* Menstrual Cup & Tampon */}
+                    <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                      <h4 className="font-semibold text-red-800 mb-3">🩺 Untuk pengguna Menstrual Cup atau Tampon:</h4>
+                      <div className="space-y-2 text-sm text-red-700">
+                        <p>💧 Cuci tangan sebelum & sesudah pemakaian</p>
+                        <p>
+                          🧼 Cuci menstrual cup dengan air bersih dan sabun khusus (tanpa pewangi) setiap kali ganti,
+                          lalu sterilkan secara berkala dengan air panas.
+                        </p>
+                        <p>
+                          ♻️ Tampon hanya sekali pakai – jangan digunakan ulang. Bungkus rapi dan buang seperti pembalut.
+                        </p>
+                        <p>
+                          ☝️ Tidak dianjurkan digunakan saat haid pertama kali atau belum mengenal anatomi tubuh dengan
+                          baik (terutama bagi remaja muslimah), kecuali dalam kondisi medis/edukatif tertentu.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gray-50 p-4 rounded-lg text-center">
+                      <p className="text-gray-700 font-semibold">
+                        💚 Ingat, menjaga kebersihan saat haid adalah bagian dari ibadah dan bentuk syukur atas fitrah
+                        yang Allah berikan kepada kita sebagai wanita.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
               {/* Macam-macam Istihadah */}
               <Card id="istihadah">
                 <CardHeader>
@@ -524,14 +714,12 @@ export default function ArticlesPage() {
                       <p className="text-sm text-gray-700 mb-3">
                         Jika darah keluar terus menerus lebih dari 15 hari 15 malam
                       </p>
-
                       <div className="bg-white p-3 rounded">
                         <h5 className="font-semibold mb-2">Contoh:</h5>
                         <ul className="text-sm space-y-1">
                           <li>• Haid sebelumnya: 8 hari</li>
                           <li>• KD (Keluar Darah): 17 hari</li>
                         </ul>
-
                         <div className="mt-3 p-2 bg-yellow-50 rounded text-xs">
                           <p>
                             <strong>Penyelesaian:</strong>
@@ -548,7 +736,6 @@ export default function ArticlesPage() {
                       <p className="text-sm text-gray-700 mb-3">
                         Jika darah keluar lebih dari 15 hari, namun diselingi dengan jeda suci.
                       </p>
-
                       <div className="bg-white p-3 rounded">
                         <h5 className="font-semibold mb-2">Contoh:</h5>
                         <ul className="text-sm space-y-1">
@@ -557,7 +744,6 @@ export default function ArticlesPage() {
                           <li>• B (Bersih): 3 hari</li>
                           <li>• KD: 4 hari</li>
                         </ul>
-
                         <div className="mt-3 p-2 bg-yellow-50 rounded text-xs">
                           <p>
                             <strong>Penyelesaian:</strong>
@@ -576,7 +762,6 @@ export default function ArticlesPage() {
                       <p className="text-sm text-gray-700 mb-3">
                         Jika masa suci antara kedua siklus haid tidak mencapai minimal suci (15 hari)
                       </p>
-
                       <div className="bg-white p-3 rounded">
                         <h5 className="font-semibold mb-2">Contoh:</h5>
                         <ul className="text-sm space-y-1">
@@ -584,7 +769,6 @@ export default function ArticlesPage() {
                           <li>• B (Bersih): 12 hari</li>
                           <li>• KD 2: 8 hari</li>
                         </ul>
-
                         <div className="mt-3 p-2 bg-yellow-50 rounded text-xs">
                           <p>
                             <strong>Penyelesaian:</strong>
@@ -597,7 +781,6 @@ export default function ArticlesPage() {
                       </div>
                     </div>
                   </div>
-
                   <div className="mt-6 bg-gray-50 p-4 rounded-lg">
                     <p className="text-sm text-gray-700">
                       <strong>Catatan Penting:</strong> Wanita yang sedang istihadah tetap diwajibkan solat, puasa,
@@ -677,7 +860,6 @@ export default function ArticlesPage() {
                     {/* Niat */}
                     <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
                       <h4 className="font-semibold text-green-800 mb-3">1. Niat</h4>
-
                       <div className="space-y-4">
                         <div className="bg-white p-3 rounded">
                           <h5 className="font-semibold mb-2">Niat secara umum:</h5>
@@ -693,7 +875,6 @@ export default function ArticlesPage() {
                             Artinya: Aku berniat mandi besar untuk menghilangkan hadas besar fardhu karena Allah Ta'ala.
                           </p>
                         </div>
-
                         <div className="bg-white p-3 rounded">
                           <h5 className="font-semibold mb-2">Niat Setelah Haid:</h5>
                           <div className="text-center mb-2">
@@ -709,7 +890,6 @@ export default function ArticlesPage() {
                             Allah Ta'ala.
                           </p>
                         </div>
-
                         <div className="bg-white p-3 rounded">
                           <h5 className="font-semibold mb-2">Niat Setelah Nifas:</h5>
                           <div className="text-center mb-2">

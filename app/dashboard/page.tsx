@@ -91,7 +91,8 @@ export default function DashboardPage() {
                 {user?.username ? `Halo, ${user.username.split('@')[0]}!` : 'Pelacak Siklus'}
               </h1>
               <p className="text-gray-600 mt-2">
-                Lacak siklus menstruasimu dan dapatkan prediksi yang dipersonalisasi
+               Pantau Siklus Haid dengan Panduan Syariah
+Aplikasi cerdas yang membantu prediksi siklus dan bimbingan ibadah.
               </p>
             </div>
 
