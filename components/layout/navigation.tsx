@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useAuth } from "@/lib/auth-context"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Calendar, History, BookOpen, LogOut, Menu, Heart } from "lucide-react"
+import { Calendar, History, BookOpen, LogOut, Menu, Heart,Bell } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -12,6 +12,12 @@ const navigation = [
   { name: "Tracker", href: "/dashboard", icon: Calendar },
   { name: "History", href: "/history", icon: History },
   { name: "Konten Fiqih", href: "/articles", icon: BookOpen },
+   { 
+    name: "Notification", 
+    href: "/notifications", 
+    icon: Bell,
+    badgeCount: 5 // Jumlah notifikasi
+  },
 ]
 
 export function Navigation() {
