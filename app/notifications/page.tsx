@@ -45,7 +45,7 @@ const mockNotifications: Notification[] = [
     createdAt: new Date().toISOString(),
     priority: "high",
     actionText: "Mulai Catat Siklus",
-    actionUrl: "/tracker",
+    actionUrl: "/dashboard",
   },
   {
     id: "2",
